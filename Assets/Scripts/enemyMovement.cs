@@ -34,16 +34,21 @@ public class enemyMovement : MonoBehaviour
     {
         Vector2 heading = currentWayPoint.position - this.transform.position;
         float distance = heading.magnitude;
-        if(distance >= 0.1){
-        Vector2 direction = heading / distance;
-        transform.Translate(direction * Time.deltaTime * speed);
+        if (distance >= 0.1)
+        {
+            Vector2 direction = heading / distance;
+            transform.Translate(direction * Time.deltaTime * speed);
         }
     }
 
     private Transform nextWaypoint()
     {
-        currentWayPointNumber++;
-        currentWayPoint = list[currentWayPointNumber];
+        if (currentWayPointNumber < list.Length - 1)
+        {
+            currentWayPointNumber++;
+            currentWayPoint = list[currentWayPointNumber];
+            return currentWayPoint;
+        }
         return currentWayPoint;
     }
 }
