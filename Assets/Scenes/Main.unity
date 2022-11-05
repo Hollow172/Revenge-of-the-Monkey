@@ -8119,6 +8119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1959381515}
   - component: {fileID: 1959381514}
+  - component: {fileID: 1959381516}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -8133,7 +8134,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1959381513}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdffb76c51f93df46846b5451edc79b9, type: 3}
   m_Name: 
@@ -8154,6 +8155,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1959381516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959381513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f45932971453f544690381e54bc8c5c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfEnemiesAlive: 0
+  isSpawning: 1
+  enemy: {fileID: 6357157690391829005, guid: 71662ee2a0082c24fb0c351329ce0ecb, type: 3}
+  StartPoint: {fileID: 1912686382}
+  multiplierOfEnemies: 3
+  cooldownBetweenSpawn: 2
 --- !u!1001 &1992148113
 PrefabInstance:
   m_ObjectHideFlags: 0
