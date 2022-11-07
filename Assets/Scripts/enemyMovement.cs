@@ -5,7 +5,7 @@ public class enemyMovement : MonoBehaviour
     [Range(0.0f, 10.0f)]
     public float speed = 1f;
 
-    private int currentWayPointNumber = 1;
+    private int currentWayPointNumber = 0;
 
     private Transform currentWayPoint;
 
@@ -16,12 +16,13 @@ public class enemyMovement : MonoBehaviour
     void Start()
     {
         list =
-            GameObject
-                .Find("Points")
-                .transform
-                .Find("Waypoints")
-                .gameObject
-                .GetComponentsInChildren<Transform>();
+            //GameObject
+            //    .Find("Points")
+            //    .transform
+            //    .Find("Waypoints")
+            //    .gameObject
+            //    .GetComponentsInChildren<Transform>();
+            FindObjectOfType<Waypoints>().Points.ToArray();
         currentWayPoint = list[currentWayPointNumber];
     }
 
