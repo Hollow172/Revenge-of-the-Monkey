@@ -5,7 +5,7 @@ public class enemyMovement : MonoBehaviour
     [Range(0.0f, 10.0f)]
     public float speed = 1f;
 
-    private static int currentWayPointNumber = 1;
+    private int currentWayPointNumber = 1;
 
     private Transform currentWayPoint;
 

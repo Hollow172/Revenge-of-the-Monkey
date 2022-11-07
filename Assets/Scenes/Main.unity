@@ -8118,7 +8118,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1959381515}
-  - component: {fileID: 1959381514}
   - component: {fileID: 1959381516}
   m_Layer: 0
   m_Name: GameManager
@@ -8127,20 +8126,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1959381514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1959381513}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdffb76c51f93df46846b5451edc79b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 6357157690391829005, guid: 71662ee2a0082c24fb0c351329ce0ecb, type: 3}
-  StartPoint: {fileID: 1912686382}
 --- !u!4 &1959381515
 Transform:
   m_ObjectHideFlags: 0
