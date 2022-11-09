@@ -5,7 +5,7 @@ public class enemySpawn : MonoBehaviour
 {
     public int numberOfEnemiesAlive = 0;
 
-    public bool isSpawning = true;
+    public static bool isSpawning = true;
 
     private int wave = 1;
 
