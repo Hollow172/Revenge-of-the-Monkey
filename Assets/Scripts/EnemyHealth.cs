@@ -10,10 +10,13 @@ public class EnemyHealth : MonoBehaviour
 
     public HealthBar healthBar;
 
+    private enemySpawn enemySpawn;
+
     void Start()
     {
         currHealth = maxHealth;
         healthBar.SetMaxHealth (maxHealth);
+        enemySpawn = FindObjectOfType<enemySpawn>();
     }
 
     void Update()
@@ -24,6 +27,12 @@ public class EnemyHealth : MonoBehaviour
         {
             currHealth -= 20;
             healthBar.SetHealth (currHealth);
+        }
+        //enemy death
+        if(currHealth <= 0)
+        {
+            enemySpawn.NumberOfEnemiesAlive--;
+            Destroy (gameObject);
         }
     }
 }
