@@ -10,13 +10,13 @@ public class EnemyHealth : MonoBehaviour
 
     public HealthBar healthBar;
 
-    private enemySpawn enemySpawn;
+    private EnemySpawn enemySpawn;
 
     void Start()
     {
         currHealth = maxHealth;
         healthBar.SetMaxHealth (maxHealth);
-        enemySpawn = FindObjectOfType<enemySpawn>();
+        enemySpawn = FindObjectOfType<EnemySpawn>();
     }
 
     void Update()
