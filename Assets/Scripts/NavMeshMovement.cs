@@ -11,7 +11,7 @@ public class NavMeshMovement : MonoBehaviour
 
     void Start()
     {
-        target = GameObject.Find("EndPoint").transform;
+        target = GameObject.Find("Base").transform;
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
@@ -19,10 +19,5 @@ public class NavMeshMovement : MonoBehaviour
             .SetDestination(new Vector3(target.position.x,
                 target.position.y,
                 transform.position.z));
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 }
