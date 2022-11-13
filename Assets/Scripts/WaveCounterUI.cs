@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class WaveCounterUI : MonoBehaviour
 {
     private Text textWave;
-    private enemySpawn enemySpawn;
+    private EnemySpawn enemySpawn;
 
     // Start is called before the first frame update
     void Start()
     {
         textWave = GetComponent<Text>();
-        enemySpawn = FindObjectOfType<enemySpawn>();
+        enemySpawn = FindObjectOfType<EnemySpawn>();
     }
 
     // Update is called once per frame

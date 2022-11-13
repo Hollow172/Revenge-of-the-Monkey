@@ -10,13 +10,17 @@ public class EnemyHealth : MonoBehaviour
 
     public HealthBar healthBar;
 
-    private enemySpawn enemySpawn;
+    private EnemySpawn enemySpawn;
+
+    private CashManager cashManager;
 
     void Start()
     {
         currHealth = maxHealth;
         healthBar.SetMaxHealth (maxHealth);
-        enemySpawn = FindObjectOfType<enemySpawn>();
+        enemySpawn = FindObjectOfType<EnemySpawn>();
+        cashManager =
+            GameObject.Find("GameManager").GetComponent<CashManager>();
     }
 
     void Update()
@@ -28,10 +32,12 @@ public class EnemyHealth : MonoBehaviour
             currHealth -= 20;
             healthBar.SetHealth (currHealth);
         }
+
         //enemy death
-        if(currHealth <= 0)
+        if (currHealth <= 0)
         {
             enemySpawn.NumberOfEnemiesAlive--;
+            cashManager.addCash(30); //Here change it to money, enemy is worth
             Destroy (gameObject);
         }
     }

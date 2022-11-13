@@ -1,13 +1,16 @@
 using System.Collections;
 using UnityEngine;
 
-public class enemySpawn : MonoBehaviour
+public class EnemySpawn : MonoBehaviour
 {
     public int NumberOfEnemiesAlive = 0;
+
     public int wave = 1;
 
     private bool isSpawning = true;
+
     private bool finishedSpawning = false;
+
     private bool finishedWaiting = false;
 
     [SerializeField]
