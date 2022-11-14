@@ -10,7 +10,7 @@ public class EnemyHealth : MonoBehaviour
 
     public HealthBar healthBar;
 
-    private EnemySpawn enemySpawn;
+    private enemySpawn enemySpawn;
 
     private CashManager cashManager;
 
@@ -18,7 +18,7 @@ public class EnemyHealth : MonoBehaviour
     {
         currHealth = maxHealth;
         healthBar.SetMaxHealth (maxHealth);
-        enemySpawn = FindObjectOfType<EnemySpawn>();
+        enemySpawn = FindObjectOfType<enemySpawn>();
         cashManager =
             GameObject.Find("GameManager").GetComponent<CashManager>();
     }

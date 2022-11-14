@@ -12,14 +12,14 @@ public class BaseHealth : MonoBehaviour
 
     public HealthBar healthBar;
 
-    private EnemySpawn enemySpawn;
+    private enemySpawn enemySpawn;
 
     // Start is called before the first frame update
     void Start()
     {
         currHealth = maxHealth;
         healthBar.SetMaxHealth (maxHealth);
-        enemySpawn = FindObjectOfType<EnemySpawn>();
+        enemySpawn = FindObjectOfType<enemySpawn>();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
