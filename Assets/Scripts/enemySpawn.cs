@@ -3,11 +3,15 @@ using UnityEngine;
 
 public class enemySpawn : MonoBehaviour
 {
-    public int numberOfEnemiesAlive = 0;
+    public int NumberOfEnemiesAlive = 0;
 
-    public static bool isSpawning = true;
+    public int wave = 1;
 
-    private int wave = 1;
+    private bool isSpawning = true;
+
+    private bool finishedSpawning = false;
+
+    private bool finishedWaiting = false;
 
     [SerializeField]
     private GameObject enemy;
@@ -21,6 +25,9 @@ public class enemySpawn : MonoBehaviour
     [SerializeField]
     private float cooldownBetweenSpawn = 2f;
 
+    [SerializeField]
+    private float cooldownBetweenWaves = 5f;
+
     private void Update()
     {
         if (isSpawning)
@@ -28,12 +35,17 @@ public class enemySpawn : MonoBehaviour
             StartCoroutine(SpawnEnemy());
             isSpawning = false;
         }
-        if (isSpawning == false && numberOfEnemiesAlive <= 0)
+        if (finishedSpawning == true && NumberOfEnemiesAlive <= 0)
         {
-            wave++;
-            isSpawning = true;
+            StartCoroutine(NextWaveWaiter());
+            if (finishedWaiting)
+            {
+                wave++;
+                isSpawning = true;
+                finishedSpawning = false;
+                finishedWaiting = false;
+            }
         }
-        //Debug.Log(wave);
     }
 
     IEnumerator SpawnEnemy()
@@ -52,7 +64,7 @@ public class enemySpawn : MonoBehaviour
             {
                 StartPoint.transform.position = closestHit.position;
                 Instantiate(enemy, closestHit.position, Quaternion.identity);
-                numberOfEnemiesAlive++;
+                NumberOfEnemiesAlive++;
                 yield return new WaitForSeconds(cooldownBetweenSpawn);
             }
             else
@@ -60,5 +72,14 @@ public class enemySpawn : MonoBehaviour
                 Debug.Log("Failed to locate closest hit");
             }
         }
+
+        //yield return new WaitForSeconds(cooldownBetweenWaves);
+        finishedSpawning = true;
+    }
+
+    IEnumerator NextWaveWaiter()
+    {
+        yield return new WaitForSeconds(cooldownBetweenWaves);
+        finishedWaiting = true;
     }
 }
