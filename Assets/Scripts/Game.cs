@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,13 @@ public class Game : MonoBehaviour
 
     [SerializeField]
     public int lives = 1;
+
+    public static Action OnGameStarted = delegate { };
+
+    private void Start()
+    {
+        OnGameStarted.Invoke();
+    }
 
     private void Update()
     {
@@ -28,7 +36,7 @@ public class Game : MonoBehaviour
     {
         game_end = true;
         StopAllCoroutines();
-        enemySpawn.isSpawning = false;
+        //enemySpawn.isSpawning = false;
         Debug.Log("Game Over");
     }
 }
