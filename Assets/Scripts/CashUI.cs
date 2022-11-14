@@ -7,10 +7,6 @@ public class CashUI : MonoBehaviour
 
     public CashManager cashManager;
 
-    void Start()
-    {
-    }
-
     public void updateText()
     {
         int currCash = cashManager.cash;
