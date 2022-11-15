@@ -215,6 +215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f6f0921333d5984d9704a11d324c655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textWave: {fileID: 58529645}
+  enemySpawn: {fileID: 1959381516}
 --- !u!1 &69325879
 GameObject:
   m_ObjectHideFlags: 0

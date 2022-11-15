@@ -11,8 +11,6 @@ public class enemySpawn : MonoBehaviour
 
     private bool finishedSpawning = false;
 
-    private bool finishedWaiting = false;
-
     [SerializeField]
     private GameObject enemy;
 
@@ -37,14 +35,9 @@ public class enemySpawn : MonoBehaviour
         }
         if (finishedSpawning == true && NumberOfEnemiesAlive <= 0)
         {
-            StartCoroutine(NextWaveWaiter());
-            if (finishedWaiting)
-            {
-                wave++;
-                isSpawning = true;
-                finishedSpawning = false;
-                finishedWaiting = false;
-            }
+            wave++;
+            isSpawning = true;
+            finishedSpawning = false;
         }
     }
 
@@ -73,13 +66,9 @@ public class enemySpawn : MonoBehaviour
             }
         }
 
-        //yield return new WaitForSeconds(cooldownBetweenWaves);
+        yield return new WaitForSeconds(cooldownBetweenWaves);
         finishedSpawning = true;
     }
 
-    IEnumerator NextWaveWaiter()
-    {
-        yield return new WaitForSeconds(cooldownBetweenWaves);
-        finishedWaiting = true;
-    }
+
 }
