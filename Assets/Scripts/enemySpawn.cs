@@ -3,13 +3,17 @@ using UnityEngine;
 
 public class enemySpawn : MonoBehaviour
 {
+    public ScriptableLevel LevelObject;
     public int NumberOfEnemiesAlive = 0;
-
-    public int wave = 1;
+    public int WaveToShow = 1;
 
     private bool isSpawning = true;
-
     private bool finishedSpawning = false;
+    private int multiplierOfEnemies; //Multiplier of enemies per wave
+    private float cooldownBetweenSpawn;
+    private float cooldownBetweenWaves;
+    private int maxAmountOfWaves;
+    private int wave = 1;
 
     [SerializeField]
     private GameObject enemy;
@@ -17,27 +21,37 @@ public class enemySpawn : MonoBehaviour
     [SerializeField]
     private Transform StartPoint;
 
-    [SerializeField]
-    private int multiplierOfEnemies = 3; //Multiplier of enemies per wave
-
-    [SerializeField]
-    private float cooldownBetweenSpawn = 2f;
-
-    [SerializeField]
-    private float cooldownBetweenWaves = 5f;
+    private void Start()
+    {
+        multiplierOfEnemies = LevelObject.MultiplierOfEnemies;
+        cooldownBetweenSpawn = LevelObject.CooldownBetweenSpawn;
+        cooldownBetweenWaves = LevelObject.CooldownBetweenWaves;
+        maxAmountOfWaves = LevelObject.MaxAmountOfWaves;
+    }
 
     private void Update()
     {
-        if (isSpawning)
+        if(wave <= maxAmountOfWaves)
         {
-            StartCoroutine(SpawnEnemy());
-            isSpawning = false;
+            if (isSpawning)
+            {
+                StartCoroutine(SpawnEnemy());
+                isSpawning = false;
+            }
+            if (finishedSpawning == true && NumberOfEnemiesAlive <= 0)
+            {
+                if(wave < maxAmountOfWaves)
+                {
+                    WaveToShow++;
+                }
+                wave++;
+                isSpawning = true;
+                finishedSpawning = false;
+            }
         }
-        if (finishedSpawning == true && NumberOfEnemiesAlive <= 0)
+        else
         {
-            wave++;
-            isSpawning = true;
-            finishedSpawning = false;
+            return;
         }
     }
 
