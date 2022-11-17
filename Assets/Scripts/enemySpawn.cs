@@ -21,6 +21,11 @@ public class enemySpawn : MonoBehaviour
     [SerializeField]
     private Transform StartPoint;
 
+    private void Awake()
+    {
+        Game.OnGameStarted += Update;
+    }
+
     private void Start()
     {
         multiplierOfEnemies = LevelObject.MultiplierOfEnemies;

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
@@ -11,32 +12,48 @@ public class Game : MonoBehaviour
     [SerializeField]
     public int lives = 1;
 
+    private GameObject Base;
+
     public static Action OnGameStarted = delegate { };
 
     private void Start()
     {
-        OnGameStarted.Invoke();
+        Base = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Update()
     {
-        if (game_end == true)
-        {
-            return;
-        }
-
-        if (lives <= 0)
+        if (Base == null)
         {
             EndGame();
         }
 
     }
 
-    void EndGame()
+    public void EndGame()
     {
-        game_end = true;
         StopAllCoroutines();
+        Time.timeScale = 0;
         //enemySpawn.isSpawning = false;
         Debug.Log("Game Over");
+    }
+
+    public void ResetGame()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Debug.Log("Game Reset");
+    }
+
+    public void PauseGame()
+    {
+        if(Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        } else
+        {
+            Time.timeScale = 0;
+        }
+
     }
 }
