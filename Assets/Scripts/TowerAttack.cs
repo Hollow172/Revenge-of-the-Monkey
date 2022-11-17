@@ -6,10 +6,14 @@ public class TowerAttack : MonoBehaviour
 {
     public List<GameObject> ListOfObjectsInRange = new List<GameObject>();
 
-    private GameObject target;
+    [HideInInspector]
+    public GameObject target;
 
     [SerializeField]
     private Transform firePoint;
+
+    [SerializeField]
+    private GameObject bullet;
 
     public float attackRate;
 
@@ -29,7 +33,11 @@ public class TowerAttack : MonoBehaviour
         if (!target)
         {
             if (ListOfObjectsInRange.Count >= 1)
+            {
                 target = ListOfObjectsInRange[0];
+                bullet.GetComponent<Bullet>().Seek(target.transform);
+                Debug.Log("passed info to bullet");
+            }
         }
         else
         {
@@ -45,5 +53,6 @@ public class TowerAttack : MonoBehaviour
     void Shoot()
     {
         Debug.Log("Shoot");
+        Instantiate(bullet, firePoint.position, firePoint.rotation);
     }
 }
