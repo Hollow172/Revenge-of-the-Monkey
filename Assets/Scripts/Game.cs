@@ -19,6 +19,7 @@ public class Game : MonoBehaviour
     private void Start()
     {
         Base = GameObject.FindGameObjectWithTag("Player");
+        OnGameStarted.Invoke();
     }
 
     private void Update()

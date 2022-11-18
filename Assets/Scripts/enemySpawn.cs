@@ -15,6 +15,8 @@ public class enemySpawn : MonoBehaviour
     private int maxAmountOfWaves;
     private int wave = 1;
 
+    private bool gameInactive = true;
+
     [SerializeField]
     private GameObject enemy;
 
@@ -23,7 +25,12 @@ public class enemySpawn : MonoBehaviour
 
     private void Awake()
     {
-        Game.OnGameStarted += Update;
+        Game.OnGameStarted += GameStart;
+    }
+
+    private void GameStart()
+    {
+        gameInactive = false;
     }
 
     private void Start()
@@ -36,6 +43,11 @@ public class enemySpawn : MonoBehaviour
 
     private void Update()
     {
+        if (gameInactive)
+        {
+            return;
+        }
+
         if(wave <= maxAmountOfWaves)
         {
             if (isSpawning)
