@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 8234002082883796183}
   - component: {fileID: -1807554665594162552}
   - component: {fileID: 3285001244173946549}
+  - component: {fileID: 5272317485845812698}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -186,6 +187,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5272317485845812698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2366753792990958167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70e7a88993354df40a9d2107f7e36680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cost: 50
 --- !u!1 &9055105770446523816
 GameObject:
   m_ObjectHideFlags: 0
