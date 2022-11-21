@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using UnityEngine;
 
 public class TowerAttack : MonoBehaviour
 {
-    public List<GameObject> ListOfObjectsInRange = new List<GameObject>();
+    public ObservableCollection<GameObject> ListOfObjectsInRange = new ObservableCollection<GameObject>();
 
     [HideInInspector]
     public GameObject target;
@@ -26,6 +28,15 @@ public class TowerAttack : MonoBehaviour
     void Start()
     {
         ListOfObjectsInRange.Clear();
+        ListOfObjectsInRange.CollectionChanged += ListenCollectionChanged;
+    }
+
+    private void ListenCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+    {
+        if(ListOfObjectsInRange.Count != 0)
+        target = ListOfObjectsInRange[0];
+        else
+            target= null;
     }
 
     void Update()
@@ -57,5 +68,10 @@ public class TowerAttack : MonoBehaviour
         Bullet bullet = currBullet.GetComponent<Bullet>();
 
         if (bullet != null) bullet.Seek(target.transform);
+    }
+
+    private void OnDestroy()
+    {
+        ListOfObjectsInRange.CollectionChanged += ListenCollectionChanged;
     }
 }
