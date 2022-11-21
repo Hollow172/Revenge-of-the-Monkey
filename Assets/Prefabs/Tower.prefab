@@ -132,7 +132,7 @@ MonoBehaviour:
   ListOfObjectsInRange: []
   target: {fileID: 0}
   firePoint: {fileID: 7012430267260411498}
-  bullet: {fileID: 3157658703338718027, guid: 1fdf077d05553a84eb1e4245fefe145a, type: 3}
+  bulletPrefab: {fileID: 3157658703338718027, guid: 1fdf077d05553a84eb1e4245fefe145a, type: 3}
   attackRate: 0.5
   projectailSpeed: 10
   damage: 10

@@ -10,7 +10,7 @@ public class Game : MonoBehaviour
     public static bool game_end = false;
 
     [SerializeField]
-    public int lives = 1;
+    private GameObject Button;
 
     private GameObject Base;
 
@@ -18,8 +18,7 @@ public class Game : MonoBehaviour
 
     private void Start()
     {
-        Base = GameObject.FindGameObjectWithTag("Player");
-        OnGameStarted.Invoke();
+        PauseGame();
     }
 
     private void Update()
@@ -56,5 +55,13 @@ public class Game : MonoBehaviour
             Time.timeScale = 0;
         }
 
+    }
+
+    public void StartGame()
+    {
+        Destroy(Button);
+        Base = GameObject.FindGameObjectWithTag("Player");
+        OnGameStarted.Invoke();
+        PauseGame();
     }
 }

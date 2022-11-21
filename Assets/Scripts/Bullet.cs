@@ -19,14 +19,21 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        if (target)
+        if (target == null)
+        {
+            Destroy (gameObject);
+            return;
+        }
+        else
         {
             Vector2 dir = target.position - transform.position;
             float distanceThisFrame =
                 towerAttack.projectailSpeed * Time.deltaTime;
-            Debug.Log (distanceThisFrame);
             if (dir.sqrMagnitude <= distanceThisFrame)
             {
+                target
+                    .GetComponent<EnemyHealth>()
+                    .takeDamage(towerAttack.damage);
             }
             transform
                 .Translate(dir.normalized * distanceThisFrame, Space.World);

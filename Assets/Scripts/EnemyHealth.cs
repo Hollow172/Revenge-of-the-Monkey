@@ -23,6 +23,12 @@ public class EnemyHealth : MonoBehaviour
             GameObject.Find("GameManager").GetComponent<CashManager>();
     }
 
+    public void takeDamage(int damage)
+    {
+        currHealth -= damage;
+        healthBar.SetHealth (currHealth);
+    }
+
     void Update()
     {
         //this is just for testing
