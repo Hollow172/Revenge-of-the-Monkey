@@ -34,6 +34,7 @@ public class Bullet : MonoBehaviour
                 target
                     .GetComponent<EnemyHealth>()
                     .takeDamage(towerAttack.damage);
+                Destroy (gameObject);
             }
             transform
                 .Translate(dir.normalized * distanceThisFrame, Space.World);
