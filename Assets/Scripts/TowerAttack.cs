@@ -13,7 +13,7 @@ public class TowerAttack : MonoBehaviour
     private Transform firePoint;
 
     [SerializeField]
-    private GameObject bullet;
+    private GameObject bulletPrefab;
 
     public float attackRate;
 
@@ -21,7 +21,7 @@ public class TowerAttack : MonoBehaviour
 
     public float projectailSpeed;
 
-    public float damage;
+    public int damage;
 
     void Start()
     {
@@ -35,14 +35,13 @@ public class TowerAttack : MonoBehaviour
             if (ListOfObjectsInRange.Count >= 1)
             {
                 target = ListOfObjectsInRange[0];
-                bullet.GetComponent<Bullet>().Seek(target.transform);
-                Debug.Log("passed info to bullet");
             }
         }
         else
         {
             if (attackCountdown <= 0f)
             {
+                transform.up = target.transform.position - transform.position;
                 Shoot();
                 attackCountdown = 1f / attackRate;
             }
@@ -52,7 +51,11 @@ public class TowerAttack : MonoBehaviour
 
     void Shoot()
     {
-        Debug.Log("Shoot");
-        Instantiate(bullet, firePoint.position, firePoint.rotation);
+        GameObject currBullet =
+            (GameObject)
+            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Bullet bullet = currBullet.GetComponent<Bullet>();
+
+        if (bullet != null) bullet.Seek(target.transform);
     }
 }
