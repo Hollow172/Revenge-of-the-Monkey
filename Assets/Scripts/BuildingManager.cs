@@ -9,11 +9,12 @@ public class BuildingManager : MonoBehaviour
     [SerializeField] private TowerCursor towerCursor;
     private Buildings buildingForPlacement;
 
+
     private void Update()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Input.GetMouseButtonDown(0) && buildingForPlacement != null)
+        if (Input.GetMouseButtonDown(0) && buildingForPlacement != null && CheckGround())
         {
             Instantiate(buildingForPlacement, mousePosition, Quaternion.identity);
             buildingForPlacement = null;
@@ -24,7 +25,7 @@ public class BuildingManager : MonoBehaviour
 
     public void BuyBuilding(Buildings building)
     {
-        if(cashManager.cash >= building.Cost)
+        if (cashManager.cash >= building.Cost)
         {
             towerCursor.gameObject.SetActive(true);
             towerCursor.GetComponent<SpriteRenderer>().sprite = building.GetComponent<SpriteRenderer>().sprite;
@@ -34,4 +35,17 @@ public class BuildingManager : MonoBehaviour
             cashUI.updateText();
         }
     }
+
+    private bool CheckGround() 
+    {
+        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity);
+        if(hit.collider.tag.Equals("Path") || hit.collider.tag.Equals("Enemy") || hit.collider.tag.Equals("Player"))
+        {
+            Debug.Log("false" + hit.collider.tag);
+            return false;
+        }
+        Debug.Log("true" + hit.collider.tag);
+        return true;
+    }
+
 }
