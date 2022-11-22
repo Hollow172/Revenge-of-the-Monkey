@@ -28,7 +28,6 @@ public class BuildingManager : MonoBehaviour
         if (cashManager.cash >= building.Cost)
         {
             towerCursor.gameObject.SetActive(true);
-            towerCursor.GetComponent<SpriteRenderer>().sprite = building.GetComponent<SpriteRenderer>().sprite;
             Cursor.visible = false;
             cashManager.cash -= building.Cost;
             buildingForPlacement = building;
@@ -41,10 +40,10 @@ public class BuildingManager : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity);
         if(hit.collider.tag.Equals("Path") || hit.collider.tag.Equals("Enemy") || hit.collider.tag.Equals("Player"))
         {
-            Debug.Log("false" + hit.collider.tag);
+            //Debug.Log("false" + hit.collider.tag);
             return false;
         }
-        Debug.Log("true" + hit.collider.tag);
+        //Debug.Log("true" + hit.collider.tag);
         return true;
     }
 
