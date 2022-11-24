@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class TowerAttack : MonoBehaviour
 {
-    public ObservableCollection<GameObject> ListOfObjectsInRange = new ObservableCollection<GameObject>();
+    public ObservableCollection<GameObject>
+        ListOfObjectsInRange = new ObservableCollection<GameObject>();
 
     [HideInInspector]
     public GameObject target;
@@ -31,12 +32,15 @@ public class TowerAttack : MonoBehaviour
         ListOfObjectsInRange.CollectionChanged += ListenCollectionChanged;
     }
 
-    private void ListenCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+    private void ListenCollectionChanged(
+        object sender,
+        NotifyCollectionChangedEventArgs e
+    )
     {
-        if(ListOfObjectsInRange.Count != 0)
-        target = ListOfObjectsInRange[0];
+        if (ListOfObjectsInRange.Count != 0)
+            target = ListOfObjectsInRange[0];
         else
-            target= null;
+            target = null;
     }
 
     void Update()
@@ -52,7 +56,7 @@ public class TowerAttack : MonoBehaviour
         {
             if (attackCountdown <= 0f)
             {
-                transform.up = target.transform.position - transform.position;
+                rotateToEnemy();
                 Shoot();
                 attackCountdown = 1f / attackRate;
             }
@@ -73,5 +77,18 @@ public class TowerAttack : MonoBehaviour
     private void OnDestroy()
     {
         ListOfObjectsInRange.CollectionChanged += ListenCollectionChanged;
+    }
+
+    private void rotateToEnemy()
+    {
+        Vector3 targetPos;
+        Vector3 thisPos;
+        float angle;
+        targetPos = target.transform.position;
+        thisPos = transform.position;
+        targetPos.x = targetPos.x - thisPos.x;
+        targetPos.y = targetPos.y - thisPos.y;
+        angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
     }
 }
