@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Game : MonoBehaviour
 {
@@ -12,12 +13,26 @@ public class Game : MonoBehaviour
     [SerializeField]
     private GameObject Button;
 
+    [SerializeField]
+    private PauseButtonChange pauseButton;
+
+    [SerializeField]
+    private Image grayImage;
+
     private GameObject Base;
 
-    public static Action OnGameStarted = delegate { };
+    private bool isStarted = false;
+
+    public static Action
+        OnGameStarted =
+            delegate ()
+            {
+            };
 
     private void Start()
     {
+        grayImage.enabled = true;
+        pauseButton.changeSpritetoPause();
         PauseGame();
     }
 
@@ -27,39 +42,47 @@ public class Game : MonoBehaviour
         {
             EndGame();
         }
-
     }
 
     public void EndGame()
     {
         StopAllCoroutines();
         Time.timeScale = 0;
+
         //enemySpawn.isSpawning = false;
-        Debug.Log("Game Over");
+        //Debug.Log("Game Over");
     }
 
     public void ResetGame()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Debug.Log("Game Reset");
+
+        //Debug.Log("Game Reset");
+        isStarted = false;
     }
 
     public void PauseGame()
     {
-        if(Time.timeScale == 0)
+        if (isStarted)
         {
-            Time.timeScale = 1;
-        } else
-        {
-            Time.timeScale = 0;
+            if (Time.timeScale == 0)
+            {
+                pauseButton.changeSpritetoPause();
+                Time.timeScale = 1;
+            }
+            else
+            {
+                pauseButton.changeSpritetoPlay();
+                Time.timeScale = 0;
+            }
         }
-
     }
 
     public void StartGame()
     {
-        Destroy(Button);
+        isStarted = true;
+        Destroy (Button);
         Base = GameObject.FindGameObjectWithTag("Player");
         OnGameStarted.Invoke();
         PauseGame();
