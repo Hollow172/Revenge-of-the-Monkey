@@ -21785,14 +21785,14 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Player Attack
     clip: {fileID: 8300000, guid: 9d0402a5db51b5d499a4d06707a544cb, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1.01
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Enemy Attack
     clip: {fileID: 8300000, guid: b86124007e0922c438f430774a696af5, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1.02
+    pitch: 1
     loop: 0
     source: {fileID: 0}
 --- !u!1 &1301572797

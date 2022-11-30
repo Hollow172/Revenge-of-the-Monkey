@@ -58,6 +58,7 @@ public class TowerAttack : MonoBehaviour
             {
                 rotateToEnemy();
                 Shoot();
+                FindObjectOfType<AudioManager>().Play("Player Attack");
                 attackCountdown = 1f / attackRate;
             }
             attackCountdown -= Time.deltaTime;

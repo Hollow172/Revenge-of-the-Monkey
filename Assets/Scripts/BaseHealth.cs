@@ -28,6 +28,7 @@ public class BaseHealth : MonoBehaviour
         //They'll deal more hp to base
         //takeDamage(collision.gameObject.damage)
         takeDamage(100);
+        FindObjectOfType<AudioManager>().Play("Enemy Attack");
         Destroy(collision.gameObject);
         enemySpawn.NumberOfEnemiesAlive--;
     }
