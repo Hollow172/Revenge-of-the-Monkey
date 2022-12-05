@@ -18,6 +18,9 @@ public class TowerAttack : MonoBehaviour
     [SerializeField]
     private GameObject bulletPrefab;
 
+    [SerializeField]
+    private ParticleSystem particles;
+
     public float attackRate;
 
     private float attackCountdown = 0f;
@@ -67,6 +70,7 @@ public class TowerAttack : MonoBehaviour
 
     void Shoot()
     {
+        particles.Play();
         GameObject currBullet =
             (GameObject)
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);

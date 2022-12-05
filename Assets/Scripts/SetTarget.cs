@@ -14,12 +14,10 @@ public class SetTarget : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider)
     {
         towerAttack.ListOfObjectsInRange.Add(collider.gameObject);
-        Debug.Log(towerAttack.ListOfObjectsInRange.Count);
     }
 
     void OnTriggerExit2D(Collider2D collider)
     {
         towerAttack.ListOfObjectsInRange.Remove(collider.gameObject);
-        Debug.Log(towerAttack.ListOfObjectsInRange.Count);
     }
 }

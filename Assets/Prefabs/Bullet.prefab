@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerAttack: {fileID: -1807554665594162552, guid: 8d734476b4592b247abe7a0ea8d6e69b, type: 3}
+  particles: {fileID: 2185309398420108183, guid: 6783840df280a704591a16cd7f48a884, type: 3}
 --- !u!212 &9074139443793441746
 SpriteRenderer:
   m_ObjectHideFlags: 0
