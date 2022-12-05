@@ -31,14 +31,6 @@ public class EnemyHealth : MonoBehaviour
 
     void Update()
     {
-        //this is just for testing
-        //feel free to remove
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            currHealth -= 20;
-            healthBar.SetHealth (currHealth);
-        }
-
         //enemy death
         if (currHealth <= 0)
         {

@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class BaseHealth : MonoBehaviour
 {
+    public HealthBar healthBar;
+
     [SerializeField]
     private int maxHealth = 1000;
 
     [SerializeField]
     private int currHealth;
 
-    public HealthBar healthBar;
+    [SerializeField]
+    private ParticleSystem particles;
 
     private enemySpawn enemySpawn;
 
@@ -24,11 +27,9 @@ public class BaseHealth : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        //This will be for different types of enemies
-        //They'll deal more hp to base
-        //takeDamage(collision.gameObject.damage)
         takeDamage(100);
         FindObjectOfType<AudioManager>().Play("Enemy Attack");
+        particles.Play();
         Destroy(collision.gameObject);
         enemySpawn.NumberOfEnemiesAlive--;
     }

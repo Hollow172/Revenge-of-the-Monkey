@@ -8,6 +8,9 @@ public class Bullet : MonoBehaviour
 
     private Transform target;
 
+    [SerializeField]
+    private GameObject particles;
+
     void Start()
     {
     }
@@ -34,6 +37,7 @@ public class Bullet : MonoBehaviour
                 target
                     .GetComponent<EnemyHealth>()
                     .takeDamage(towerAttack.damage);
+                Instantiate(particles, transform.position, Quaternion.identity);
                 Destroy (gameObject);
             }
             transform
