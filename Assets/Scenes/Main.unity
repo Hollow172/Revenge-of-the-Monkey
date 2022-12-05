@@ -21795,6 +21795,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Enemy Death
+    clip: {fileID: 8300000, guid: d43cebea22cc3a74d87dc7785cf47b46, type: 3}
+    volume: 0.84
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &1301572797
 GameObject:
   m_ObjectHideFlags: 0

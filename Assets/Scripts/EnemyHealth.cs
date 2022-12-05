@@ -45,6 +45,7 @@ public class EnemyHealth : MonoBehaviour
             enemySpawn.NumberOfEnemiesAlive--;
             cashManager.addCash(30); //Here change it to money, enemy is worth
             Destroy (gameObject);
+            FindObjectOfType<AudioManager>().Play("Enemy Death");
         }
     }
 }
