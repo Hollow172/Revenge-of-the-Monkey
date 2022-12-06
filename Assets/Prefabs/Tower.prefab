@@ -219,7 +219,7 @@ MonoBehaviour:
   particles: {fileID: 5125573861072454661}
   attackRate: 0.5
   projectailSpeed: 10
-  damage: 30
+  damage: 20
 --- !u!114 &5272317485845812698
 MonoBehaviour:
   m_ObjectHideFlags: 0

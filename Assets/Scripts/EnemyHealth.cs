@@ -8,6 +8,9 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField]
     private int currHealth;
 
+    [SerializeField]
+    private int enemyWorth = 20; //jak duzo golda dostaniemy za przeciwnika
+
     public HealthBar healthBar;
 
     private enemySpawn enemySpawn;
@@ -35,7 +38,7 @@ public class EnemyHealth : MonoBehaviour
         if (currHealth <= 0)
         {
             enemySpawn.NumberOfEnemiesAlive--;
-            cashManager.addCash(30); //Here change it to money, enemy is worth
+            cashManager.addCash(enemyWorth); //Here change it to money, enemy is worth
             Destroy (gameObject);
             FindObjectOfType<AudioManager>().Play("Enemy Death");
         }

@@ -27,7 +27,7 @@ public class BaseHealth : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        takeDamage(100);
+        takeDamage(200);
         FindObjectOfType<AudioManager>().Play("Enemy Attack");
         particles.Play();
         Destroy(collision.gameObject);
