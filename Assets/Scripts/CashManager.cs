@@ -9,7 +9,7 @@ public class CashManager : MonoBehaviour
     public CashUI cashUi;
 
     [SerializeField]
-    private int startCash = 100;
+    private int startCash = 150;
 
     void Start()
     {

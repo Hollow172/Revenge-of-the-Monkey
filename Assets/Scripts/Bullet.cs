@@ -37,6 +37,7 @@ public class Bullet : MonoBehaviour
                 target
                     .GetComponent<EnemyHealth>()
                     .takeDamage(towerAttack.damage);
+                FindObjectOfType<AudioManager>().Play("Enemy Got Hit");
                 Instantiate(particles, transform.position, Quaternion.identity);
                 Destroy (gameObject);
             }

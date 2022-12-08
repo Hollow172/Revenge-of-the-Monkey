@@ -901,18 +901,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 29
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 4
-    m_AlignByGeometry: 0
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Buy a Tower
+  m_Text: Buy a Tower (50G)
 --- !u!222 &560720259
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21855,14 +21855,14 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Player Attack
     clip: {fileID: 8300000, guid: 9d0402a5db51b5d499a4d06707a544cb, type: 3}
-    volume: 1.01
+    volume: 0.22
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Enemy Attack
-    clip: {fileID: 8300000, guid: b86124007e0922c438f430774a696af5, type: 3}
-    volume: 1.02
-    pitch: 1
+    clip: {fileID: 8300000, guid: d43cebea22cc3a74d87dc7785cf47b46, type: 3}
+    volume: 0.69
+    pitch: 0.69
     loop: 0
     source: {fileID: 0}
   - name: Enemy Death
@@ -21874,6 +21874,12 @@ MonoBehaviour:
   - name: UI Play
     clip: {fileID: 8300000, guid: b805e8b9a49940b4aa9f372c986bc65c, type: 3}
     volume: 0.84
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Enemy Got Hit
+    clip: {fileID: 8300000, guid: b86124007e0922c438f430774a696af5, type: 3}
+    volume: 0.94
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -22407,7 +22413,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1650, y: -36.115967}
+  m_AnchoredPosition: {x: -1650, y: -98.25}
   m_SizeDelta: {x: 238.96, y: 63.88}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1906764800
@@ -22532,7 +22538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cash: 0
   cashUi: {fileID: 1906764802}
-  startCash: 100
+  startCash: 150
 --- !u!4 &1959381515
 Transform:
   m_ObjectHideFlags: 0
