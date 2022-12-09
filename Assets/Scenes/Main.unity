@@ -22600,6 +22600,7 @@ MonoBehaviour:
   cashManager: {fileID: 1959381514}
   cashUI: {fileID: 1906764802}
   towerCursor: {fileID: 1621253819}
+  game: {fileID: 1959381517}
 --- !u!1 &2030994627
 GameObject:
   m_ObjectHideFlags: 0

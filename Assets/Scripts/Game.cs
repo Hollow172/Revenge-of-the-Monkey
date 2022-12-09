@@ -87,4 +87,13 @@ public class Game : MonoBehaviour
         OnGameStarted.Invoke();
         PauseGame();
     }
+
+    public bool CheckStart()
+    {
+        if (isStarted)
+        {
+            return true;
+        }
+        return false;
+    }
 }

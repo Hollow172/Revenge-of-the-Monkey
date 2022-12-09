@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BuildingManager : MonoBehaviour
 {
     [SerializeField] private CashManager cashManager;
     [SerializeField] private CashUI cashUI;
     [SerializeField] private TowerCursor towerCursor;
+    [SerializeField] private Game game;
     private Buildings buildingForPlacement;
 
 
@@ -14,7 +16,7 @@ public class BuildingManager : MonoBehaviour
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Input.GetMouseButtonDown(0) && buildingForPlacement != null && CheckGround())
+        if (game.CheckStart() && Input.GetMouseButtonDown(0) && buildingForPlacement != null && CheckGround())
         {
             Instantiate(buildingForPlacement, mousePosition, Quaternion.identity);
             buildingForPlacement = null;
@@ -25,8 +27,8 @@ public class BuildingManager : MonoBehaviour
 
     public void BuyBuilding(Buildings building)
     {
-        if (cashManager.cash >= building.Cost)
-        {
+        if (cashManager.cash >= building.Cost && game.CheckStart() && Cursor.visible)
+        {   
             towerCursor.gameObject.SetActive(true);
             Cursor.visible = false;
             cashManager.cash -= building.Cost;
@@ -38,7 +40,11 @@ public class BuildingManager : MonoBehaviour
     private bool CheckGround() 
     {
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity);
-        if(hit.collider.tag.Equals("Path") || hit.collider.tag.Equals("Enemy") || hit.collider.tag.Equals("Player"))
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return false; //checking for UI
+        }
+        if (hit.collider.tag.Equals("Path") || hit.collider.tag.Equals("Enemy") || hit.collider.tag.Equals("Player"))
         {
             //Debug.Log("false" + hit.collider.tag);
             return false;
