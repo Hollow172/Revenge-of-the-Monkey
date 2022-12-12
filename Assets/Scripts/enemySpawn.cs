@@ -5,17 +5,18 @@ using UnityEngine;
 public class enemySpawn : MonoBehaviour
 {
     public ScriptableLevel LevelObject;
+    public List<ScriptableAmountEnemy> EnemyList;
     public int NumberOfEnemiesAlive = 0;
     public int WaveToShow = 1;
 
-    private bool isSpawning = true;
-    private bool finishedSpawning = false;
-    private int multiplierOfEnemies; //Multiplier of enemies per wave
     private List<float> cooldownBetweenSpawns;
-    private float cooldownBetweenWaves;
-    private int maxAmountOfWaves;
-    private int wave = 1;
     private List<GameObject> enemies;
+    private int maxAmountOfWaves;
+    private float cooldownBetweenWaves;
+    
+    private bool finishedSpawning = false;
+    private bool isSpawning = true;
+    private int wave = 1;
     private bool gameInactive = true;
 
     [SerializeField]
@@ -33,7 +34,6 @@ public class enemySpawn : MonoBehaviour
 
     private void Start()
     {
-        multiplierOfEnemies = LevelObject.MultiplierOfEnemies;
         cooldownBetweenWaves = LevelObject.CooldownBetweenWaves;
         maxAmountOfWaves = LevelObject.MaxAmountOfWaves;
         cooldownBetweenSpawns = LevelObject.CooldownBetweenSpawn;
@@ -53,7 +53,7 @@ public class enemySpawn : MonoBehaviour
             {
                 for (int i = 0; i < enemies.Count; i++)
                 {
-                    StartCoroutine(SpawnEnemy(enemies[i], cooldownBetweenSpawns[i]));
+                    StartCoroutine(SpawnEnemy(enemies[i], cooldownBetweenSpawns[i], i));
                 }
                 isSpawning = false;
             }
@@ -74,12 +74,14 @@ public class enemySpawn : MonoBehaviour
         }
     }
 
-    IEnumerator SpawnEnemy(GameObject enemy, float cooldownEnemy)
+    IEnumerator SpawnEnemy(GameObject enemy, float cooldownEnemy, int enemyListPosition)
     {
         Vector3 sourcePostion = StartPoint.position;
         UnityEngine.AI.NavMeshHit closestHit;
+        int temporarywave = wave;
+        temporarywave--;
 
-        for (int i = 0; i < multiplierOfEnemies * wave; i++)
+        for (int i = 0; i < EnemyList[enemyListPosition].EnemyPerWave[temporarywave]; i++)
         {
             if (
                 UnityEngine
