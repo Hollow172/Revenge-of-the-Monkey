@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxAmountOfWaves: 10
   MultiplierOfEnemies: 5
-  CooldownBetweenSpawn: 2
   CooldownBetweenWaves: 3
+  CooldownBetweenSpawn:
+  - 3
+  EnemiesToSpawn:
+  - {fileID: 6357157690391829005, guid: 71662ee2a0082c24fb0c351329ce0ecb, type: 3}

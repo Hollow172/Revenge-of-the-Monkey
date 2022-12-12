@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class enemySpawn : MonoBehaviour
@@ -10,15 +11,12 @@ public class enemySpawn : MonoBehaviour
     private bool isSpawning = true;
     private bool finishedSpawning = false;
     private int multiplierOfEnemies; //Multiplier of enemies per wave
-    private float cooldownBetweenSpawn;
+    private List<float> cooldownBetweenSpawns;
     private float cooldownBetweenWaves;
     private int maxAmountOfWaves;
     private int wave = 1;
-
+    private List<GameObject> enemies;
     private bool gameInactive = true;
-
-    [SerializeField]
-    private GameObject enemy;
 
     [SerializeField]
     private Transform StartPoint;
@@ -36,9 +34,10 @@ public class enemySpawn : MonoBehaviour
     private void Start()
     {
         multiplierOfEnemies = LevelObject.MultiplierOfEnemies;
-        cooldownBetweenSpawn = LevelObject.CooldownBetweenSpawn;
         cooldownBetweenWaves = LevelObject.CooldownBetweenWaves;
         maxAmountOfWaves = LevelObject.MaxAmountOfWaves;
+        cooldownBetweenSpawns = LevelObject.CooldownBetweenSpawn;
+        enemies = LevelObject.EnemiesToSpawn;
     }
 
     private void Update()
@@ -52,7 +51,10 @@ public class enemySpawn : MonoBehaviour
         {
             if (isSpawning)
             {
-                StartCoroutine(SpawnEnemy());
+                for (int i = 0; i < enemies.Count; i++)
+                {
+                    StartCoroutine(SpawnEnemy(enemies[i], cooldownBetweenSpawns[i]));
+                }
                 isSpawning = false;
             }
             if (finishedSpawning == true && NumberOfEnemiesAlive <= 0)
@@ -72,7 +74,7 @@ public class enemySpawn : MonoBehaviour
         }
     }
 
-    IEnumerator SpawnEnemy()
+    IEnumerator SpawnEnemy(GameObject enemy, float cooldownEnemy)
     {
         Vector3 sourcePostion = StartPoint.position;
         UnityEngine.AI.NavMeshHit closestHit;
@@ -89,7 +91,7 @@ public class enemySpawn : MonoBehaviour
                 StartPoint.transform.position = closestHit.position;
                 Instantiate(enemy, closestHit.position, Quaternion.identity);
                 NumberOfEnemiesAlive++;
-                yield return new WaitForSeconds(cooldownBetweenSpawn);
+                yield return new WaitForSeconds(cooldownEnemy);
             }
             else
             {

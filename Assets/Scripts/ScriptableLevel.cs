@@ -7,7 +7,8 @@ public class ScriptableLevel : ScriptableObject
 {
     public int MaxAmountOfWaves = 6;
     public int MultiplierOfEnemies = 3;
-    public int CooldownBetweenSpawn = 3;
-    public int CooldownBetweenWaves = 5;
+    public float CooldownBetweenWaves = 5;
+    public List<float> CooldownBetweenSpawn;
+    public List<GameObject> EnemiesToSpawn;
 }
 
