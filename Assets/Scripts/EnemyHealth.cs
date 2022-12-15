@@ -3,13 +3,13 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField]
-    private int maxHealth = 100;
+    private int maxHealth = 130;
 
     [SerializeField]
     private int currHealth;
 
     [SerializeField]
-    private int enemyWorth = 20; //jak duzo golda dostaniemy za przeciwnika
+    private int enemyWorth = 5; //jak duzo golda dostaniemy za przeciwnika
 
     public HealthBar healthBar;
 

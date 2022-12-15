@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f7725cda4e3e74cad1a75bc9181aca, type: 3}
   m_Name: Level 3 enemy 1
   m_EditorClassIdentifier: 
-  EnemyPerWave: 000000000000000000000000
+  EnemyPerWave: 04000000080000000c00000010000000190000001e000000

@@ -63,7 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currHealth: 0
-  enemyWorth: 20
+  enemyWorth: 10
   healthBar: {fileID: 7875684651606514970}
 --- !u!212 &6161301195599875204
 SpriteRenderer:
