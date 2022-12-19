@@ -23,4 +23,9 @@ public class UI_Controller : MonoBehaviour
     {
         SceneController.LoadScene(sceneIndex);
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }
