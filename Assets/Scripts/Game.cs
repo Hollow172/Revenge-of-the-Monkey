@@ -32,7 +32,7 @@ public class Game : MonoBehaviour
     private void Start()
     {
         grayImage.enabled = true;
-        pauseButton.changeSpritetoPause();
+        //pauseButton.changeSpritetoPause();
         PauseGame();
     }
 
