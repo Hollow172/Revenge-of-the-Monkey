@@ -22,6 +22,7 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
+        transform.Rotate(new Vector3(5, 0, 0), Space.Self);
         if (target == null)
         {
             Destroy (gameObject);
