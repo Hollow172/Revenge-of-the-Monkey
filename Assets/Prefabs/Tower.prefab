@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1478399625561168904}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   - {fileID: 3841278801989335378}
   - {fileID: 8856080499655430841}
   m_Father: {fileID: 8234002082883796183}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1632073353008765219
 GameObject:
@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7012430267260411498}
   - component: {fileID: 1158335714263712209}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ Transform:
   m_LocalScale: {x: 0.22769146, y: 0.48951167, z: 0.554939}
   m_Children: []
   m_Father: {fileID: 8234002082883796183}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &1158335714263712209
 SpriteRenderer:
@@ -127,9 +127,9 @@ GameObject:
   - component: {fileID: -1807554665594162552}
   - component: {fileID: 5272317485845812698}
   - component: {fileID: -3958364736821818586}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tower
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,6 +145,7 @@ Transform:
   m_LocalPosition: {x: -14.1, y: 3.97, z: 0}
   m_LocalScale: {x: 0.8806374, y: 0.8806374, z: 0.8806374}
   m_Children:
+  - {fileID: 689082655710773962}
   - {fileID: 5120219547131302151}
   - {fileID: 7012430267260411498}
   - {fileID: 1478399625561168904}
@@ -244,7 +245,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -271,7 +272,7 @@ GameObject:
   - component: {fileID: 8856080499655430841}
   - component: {fileID: 9030113017402648975}
   - component: {fileID: 4491535846110694558}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Placing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5122,6 +5123,53 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!1 &4441143399093304731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 689082655710773962}
+  - component: {fileID: 6612441749658402672}
+  m_Layer: 0
+  m_Name: CheckForTowers
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &689082655710773962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4441143399093304731}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8234002082883796183}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &6612441749658402672
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4441143399093304731}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
 --- !u!1 &8566762293962740233
 GameObject:
   m_ObjectHideFlags: 0
@@ -5133,7 +5181,7 @@ GameObject:
   - component: {fileID: 3841278801989335378}
   - component: {fileID: 5125573861072454661}
   - component: {fileID: 4193072056979857383}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: 'Shooting '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9998,7 +10046,7 @@ GameObject:
   - component: {fileID: 5502478745871922324}
   - component: {fileID: 7085857205276518202}
   - component: {fileID: 1046980370452510466}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10017,7 +10065,7 @@ Transform:
   m_LocalScale: {x: 6.659469, y: 6.659469, z: 6.659469}
   m_Children: []
   m_Father: {fileID: 8234002082883796183}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5502478745871922324
 MonoBehaviour:
