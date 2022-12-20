@@ -13,11 +13,13 @@ public class enemySpawn : MonoBehaviour
     private List<GameObject> enemies;
     private int maxAmountOfWaves;
     private float cooldownBetweenWaves;
+    private float waitBeforeFirstWave;
     
     private bool finishedSpawning = false;
     private bool isSpawning = true;
     private int wave = 1;
     private bool gameInactive = true;
+    private bool isFirstWave = true;
 
     [SerializeField]
     private Transform StartPoint;
@@ -38,6 +40,7 @@ public class enemySpawn : MonoBehaviour
         maxAmountOfWaves = LevelObject.MaxAmountOfWaves;
         cooldownBetweenSpawns = LevelObject.CooldownBetweenSpawn;
         enemies = LevelObject.EnemiesToSpawn;
+        waitBeforeFirstWave = LevelObject.SecondsBeforeFirstWave;
     }
 
     private void Update()
@@ -47,7 +50,12 @@ public class enemySpawn : MonoBehaviour
             return;
         }
 
-        if(wave <= maxAmountOfWaves)
+        if (isFirstWave)
+        {
+            StartCoroutine(DelayWaveTest());
+        }
+
+        if (wave <= maxAmountOfWaves && !isFirstWave)
         {
             if (isSpawning)
             {
@@ -103,6 +111,12 @@ public class enemySpawn : MonoBehaviour
 
         yield return new WaitForSeconds(cooldownBetweenWaves);
         finishedSpawning = true;
+    }
+
+    IEnumerator DelayWaveTest()
+    {
+        yield return new WaitForSeconds(waitBeforeFirstWave);
+        isFirstWave = false;
     }
 
 

@@ -10,6 +10,6 @@ public class CashUI : MonoBehaviour
     public void updateText()
     {
         int currCash = cashManager.cash;
-        cashText.text = currCash.ToString() + "G";
+        cashText.text = currCash.ToString();
     }
 }
