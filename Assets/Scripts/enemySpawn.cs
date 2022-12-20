@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class enemySpawn : MonoBehaviour
 {
@@ -12,17 +13,21 @@ public class enemySpawn : MonoBehaviour
     private List<float> cooldownBetweenSpawns;
     private List<GameObject> enemies;
     private int maxAmountOfWaves;
-    private float cooldownBetweenWaves;
+    //private float cooldownBetweenWaves;
     private float waitBeforeFirstWave;
     
     private bool finishedSpawning = false;
     private bool isSpawning = true;
     private int wave = 1;
     private bool gameInactive = true;
-    private bool isFirstWave = true;
+    private bool delayWave = true;
+    private float timeRemaining;
 
     [SerializeField]
     private Transform StartPoint;
+    [SerializeField]
+    private Text nextWave;
+
 
     private void Awake()
     {
@@ -36,11 +41,12 @@ public class enemySpawn : MonoBehaviour
 
     private void Start()
     {
-        cooldownBetweenWaves = LevelObject.CooldownBetweenWaves;
+        //cooldownBetweenWaves = LevelObject.CooldownBetweenWaves;
         maxAmountOfWaves = LevelObject.MaxAmountOfWaves;
         cooldownBetweenSpawns = LevelObject.CooldownBetweenSpawn;
         enemies = LevelObject.EnemiesToSpawn;
-        waitBeforeFirstWave = LevelObject.SecondsBeforeFirstWave;
+        waitBeforeFirstWave = LevelObject.SecondsBeforeWaves;
+        timeRemaining = waitBeforeFirstWave;
     }
 
     private void Update()
@@ -50,12 +56,15 @@ public class enemySpawn : MonoBehaviour
             return;
         }
 
-        if (isFirstWave)
+        if (wave <= maxAmountOfWaves && delayWave)
         {
+            nextWave.gameObject.SetActive(true);
+            timeRemaining -= Time.deltaTime;
+            nextWave.text = "NEXT WAVE: "+timeRemaining.ToString("f0");
             StartCoroutine(DelayWaveTest());
         }
 
-        if (wave <= maxAmountOfWaves && !isFirstWave)
+        if (wave <= maxAmountOfWaves && !delayWave)
         {
             if (isSpawning)
             {
@@ -74,6 +83,8 @@ public class enemySpawn : MonoBehaviour
                 wave++;
                 isSpawning = true;
                 finishedSpawning = false;
+                delayWave = true;
+                timeRemaining = waitBeforeFirstWave;   
             }
         }
         else
@@ -109,14 +120,15 @@ public class enemySpawn : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(cooldownBetweenWaves);
+        //yield return new WaitForSeconds(cooldownBetweenWaves);
         finishedSpawning = true;
     }
 
     IEnumerator DelayWaveTest()
     {
         yield return new WaitForSeconds(waitBeforeFirstWave);
-        isFirstWave = false;
+        delayWave = false;
+        nextWave.gameObject.SetActive(false);
     }
 
 

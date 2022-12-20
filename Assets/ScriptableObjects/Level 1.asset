@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Level 1
   m_EditorClassIdentifier: 
   MaxAmountOfWaves: 3
-  MultiplierOfEnemies: 3
-  CooldownBetweenWaves: 7
+  SecondsBeforeFirstWave: 3
   CooldownBetweenSpawn:
   - 3
   EnemiesToSpawn:

@@ -29,6 +29,8 @@ public class TowerAttack : MonoBehaviour
 
     public int damage;
 
+    private bool lookingRight = false;
+
     void Start()
     {
         ListOfObjectsInRange.Clear();
@@ -59,7 +61,8 @@ public class TowerAttack : MonoBehaviour
         {
             if (attackCountdown <= 0f)
             {
-                rotateToEnemy();
+                //rotateToEnemy();
+                rotateLeftRight();
                 Shoot();
                 FindObjectOfType<AudioManager>().Play("Player Attack");
                 attackCountdown = 1f / attackRate;
@@ -70,7 +73,7 @@ public class TowerAttack : MonoBehaviour
 
     void Shoot()
     {
-        particles.Play();
+        //particles.Play();
         GameObject currBullet =
             (GameObject)
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
@@ -95,5 +98,28 @@ public class TowerAttack : MonoBehaviour
         targetPos.y = targetPos.y - thisPos.y;
         angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
+    }
+
+    private void rotateLeftRight()
+    {
+        Vector3 targetPos;
+        Vector3 thisPos;
+        targetPos = target.transform.position;
+        thisPos = transform.position;
+        targetPos.x = targetPos.x - thisPos.x;
+        targetPos.y = targetPos.y - thisPos.y;
+
+        if(targetPos.x < 0 && lookingRight)
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 360, 0));
+            lookingRight = false;
+        }
+
+        if(targetPos.x > 0 && transform.rotation.eulerAngles.y >= 0)
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
+            lookingRight = true;
+        }
+        
     }
 }
