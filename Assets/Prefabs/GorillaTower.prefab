@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 5272317485845812698}
   - component: {fileID: -3958364736821818586}
   m_Layer: 0
-  m_Name: Tower
+  m_Name: GorillaTower
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
