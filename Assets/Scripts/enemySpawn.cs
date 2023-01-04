@@ -19,7 +19,7 @@ public class enemySpawn : MonoBehaviour
     private bool finishedSpawning = false;
     private bool isSpawning = true;
     private int wave = 1;
-    private bool gameInactive = true;
+    public bool gameInactive = true;
     private bool delayWave = true;
     private float timeRemaining;
 
