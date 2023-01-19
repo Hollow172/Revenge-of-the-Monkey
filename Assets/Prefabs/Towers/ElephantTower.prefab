@@ -216,11 +216,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   firePoint: {fileID: 7012430267260411498}
-  bulletPrefab: {fileID: 3157658703338718027, guid: 1fdf077d05553a84eb1e4245fefe145a, type: 3}
+  bulletPrefab: {fileID: 699713666475238117, guid: b0a2f5b56f45ea445b4a4d106221400c, type: 3}
   particles: {fileID: 5125573861072454661}
-  attackRate: 0.5
-  projectailSpeed: 10
-  damage: 20
+  attackRate: 0.4
+  projectailSpeed: 5
+  damage: 100
 --- !u!114 &5272317485845812698
 MonoBehaviour:
   m_ObjectHideFlags: 0
