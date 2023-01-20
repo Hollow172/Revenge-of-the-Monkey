@@ -23,6 +23,8 @@ public class enemySpawn : MonoBehaviour
     private bool delayWave = true;
     private float timeRemaining;
 
+    private bool delayGorilla = false;
+
     [SerializeField]
     private Transform StartPoint;
     [SerializeField]
@@ -70,6 +72,10 @@ public class enemySpawn : MonoBehaviour
             {
                 for (int i = 0; i < enemies.Count; i++)
                 {
+                    if(i > 0)
+                    {
+                        delayGorilla = true;
+                    }
                     StartCoroutine(SpawnEnemy(enemies[i], cooldownBetweenSpawns[i], i));
                 }
                 isSpawning = false;
@@ -109,6 +115,10 @@ public class enemySpawn : MonoBehaviour
                     .SamplePosition(sourcePostion, out closestHit, 500, 1)
             )
             {
+                if (delayGorilla == true)
+                {
+                    yield return new WaitForSeconds(1);
+                }
                 StartPoint.transform.position = closestHit.position;
                 Instantiate(enemy, closestHit.position, Quaternion.identity);
                 NumberOfEnemiesAlive++;
@@ -121,6 +131,10 @@ public class enemySpawn : MonoBehaviour
         }
 
         //yield return new WaitForSeconds(cooldownBetweenWaves);
+        if (delayGorilla == true)
+        {
+            delayGorilla = false;
+        }
         finishedSpawning = true;
     }
 
@@ -130,6 +144,7 @@ public class enemySpawn : MonoBehaviour
         delayWave = false;
         nextWave.gameObject.SetActive(false);
     }
+
 
 
 }

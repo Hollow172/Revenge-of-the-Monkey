@@ -16,5 +16,7 @@ MonoBehaviour:
   SecondsBeforeWaves: 2.5
   CooldownBetweenSpawn:
   - 3
+  - 4
   EnemiesToSpawn:
   - {fileID: 6357157690391829005, guid: 71662ee2a0082c24fb0c351329ce0ecb, type: 3}
+  - {fileID: 3451827125252663108, guid: 338d65be63f485748948d50f700be14b, type: 3}

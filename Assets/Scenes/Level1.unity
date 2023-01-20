@@ -6667,6 +6667,7 @@ MonoBehaviour:
   LevelObject: {fileID: 11400000, guid: c6bf02af70d44d1458732d8afceb3297, type: 2}
   EnemyList:
   - {fileID: 11400000, guid: 63968ce826a8f06408f4ce9cc3c6a3c0, type: 2}
+  - {fileID: 11400000, guid: 57c28aa52fbe978438efc5cb89cf3963, type: 2}
   NumberOfEnemiesAlive: 0
   WaveToShow: 1
   gameInactive: 1
