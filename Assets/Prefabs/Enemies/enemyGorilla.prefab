@@ -90,7 +90,7 @@ PrefabInstance:
     - target: {fileID: 6161301195599875204, guid: 71662ee2a0082c24fb0c351329ce0ecb, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: de57214ff318402468956a6a8a894446, type: 3}
+      objectReference: {fileID: 21300000, guid: c752eef868a6f8843ba2a8ae21f60a0a, type: 3}
     - target: {fileID: 6357157690391829005, guid: 71662ee2a0082c24fb0c351329ce0ecb, type: 3}
       propertyPath: m_Name
       value: enemyGorilla
