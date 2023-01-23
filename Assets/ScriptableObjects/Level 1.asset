@@ -19,4 +19,4 @@ MonoBehaviour:
   - 4
   EnemiesToSpawn:
   - {fileID: 6357157690391829005, guid: 71662ee2a0082c24fb0c351329ce0ecb, type: 3}
-  - {fileID: 3451827125252663108, guid: 338d65be63f485748948d50f700be14b, type: 3}
+  - {fileID: 2312242021272077471, guid: a071f6358af596f48ae365c69095b3d8, type: 3}
