@@ -15,14 +15,11 @@ public class BaseHealth : MonoBehaviour
     [SerializeField]
     private ParticleSystem particles;
 
-    private enemySpawn enemySpawn;
-
     // Start is called before the first frame update
     void Start()
     {
         currHealth = maxHealth;
         healthBar.SetMaxHealth (maxHealth);
-        enemySpawn = FindObjectOfType<enemySpawn>();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -31,7 +28,6 @@ public class BaseHealth : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("Enemy Attack");
         particles.Play();
         Destroy(collision.gameObject);
-        enemySpawn.NumberOfEnemiesAlive--;
     }
 
     void takeDamage(int damage)

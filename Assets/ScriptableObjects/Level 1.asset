@@ -13,10 +13,6 @@ MonoBehaviour:
   m_Name: Level 1
   m_EditorClassIdentifier: 
   MaxAmountOfWaves: 3
+  CooldownBetweenWaves: 7
   SecondsBeforeWaves: 2.5
-  CooldownBetweenSpawn:
-  - 3
-  - 4
-  EnemiesToSpawn:
-  - {fileID: 6357157690391829005, guid: 71662ee2a0082c24fb0c351329ce0ecb, type: 3}
-  - {fileID: 2312242021272077471, guid: a071f6358af596f48ae365c69095b3d8, type: 3}
+  SpawnRate: 2

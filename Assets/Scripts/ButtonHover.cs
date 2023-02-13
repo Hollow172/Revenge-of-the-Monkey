@@ -6,11 +6,10 @@ using UnityEngine.EventSystems;
 
 public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private enemySpawn gameActiveCheck;
+    [SerializeField] private EnemySpawn1 gameActiveCheck;
     [SerializeField] private Button buttonToHover;
     [SerializeField] private GameObject unhoverObject;
     [SerializeField] private Text hoverObject;
-
     [SerializeField] private float fadeSpeed;
 
     private void Start()

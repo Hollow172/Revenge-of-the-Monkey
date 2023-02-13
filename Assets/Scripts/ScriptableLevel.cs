@@ -6,9 +6,8 @@ using UnityEngine;
 public class ScriptableLevel : ScriptableObject
 {
     public int MaxAmountOfWaves = 6;
-    //public float CooldownBetweenWaves = 5;
+    public float CooldownBetweenWaves = 5;
     public float SecondsBeforeWaves = 2.5f;
-    public List<float> CooldownBetweenSpawn;
-    public List<GameObject> EnemiesToSpawn;
+    public float SpawnRate = 2f;
 }
 

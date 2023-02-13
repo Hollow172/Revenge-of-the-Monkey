@@ -7,7 +7,7 @@ public class WaveCounterUI : MonoBehaviour
 {
     public ScriptableLevel LevelObject;
     [SerializeField] private Text textWave;
-    [SerializeField] private enemySpawn enemySpawn;
+    [SerializeField] private EnemySpawn1 enemyspawn;
     private int maxAmountofWaves;
 
     private void Start()
@@ -16,6 +16,6 @@ public class WaveCounterUI : MonoBehaviour
     }
     void Update()
     {
-        textWave.text = "WAVE: " + enemySpawn.WaveToShow + "/" + maxAmountofWaves;
+        textWave.text = "WAVE: "+ (enemyspawn.WaveToShow + 1) + "/" + maxAmountofWaves;
     }
 }
