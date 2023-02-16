@@ -52,7 +52,7 @@ public class EnemySpawn1 : MonoBehaviour
 
     void Update()
     {
-        if (!initializingFlag)
+        if (!initializingFlag && !gameInactive)
         {
             nextWave.gameObject.SetActive(true);
             timeBeforeFirstWave -= Time.deltaTime;
