@@ -5,6 +5,7 @@ monkey revenge:
 - rework pierwszego poziomu
 - main screen
 - settings
+- game over screen
 
 - animacje chodzenia
 - nowy przeciwnik
@@ -16,6 +17,9 @@ monkey revenge:
 
 - balans gry:
 	jeden rodzaj enemy, jedna wieża 	1 lvl
+
+- health bar:
+	zmienna na zadany dmg zaleznie od enemy
 
 
 ---------------------- na później -----------------------

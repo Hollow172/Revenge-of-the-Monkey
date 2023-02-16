@@ -15,7 +15,9 @@ public class BaseHealth : MonoBehaviour
     [SerializeField]
     private ParticleSystem particles;
 
-    // Start is called before the first frame update
+    [SerializeField]
+    private AudioManager audioManager;
+
     void Start()
     {
         currHealth = maxHealth;
@@ -25,7 +27,7 @@ public class BaseHealth : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         takeDamage(200);
-        FindObjectOfType<AudioManager>().Play("Enemy Attack");
+        audioManager.Play("Enemy Attack");
         particles.Play();
         Destroy(collision.gameObject);
     }
