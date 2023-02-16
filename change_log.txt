@@ -1,0 +1,22 @@
+monkey revenge:
+
+- nowe poziomy (4)
+- oddalic ekran
+- rework pierwszego poziomu
+- main screen
+- settings
+
+- animacje chodzenia
+- nowy przeciwnik
+- specjalne efekty wież : bullets zmienic
+- przesunac baze
+- zmienic ui, dodac ramki 
+- health bar zmienic
+- pop up - nowa wieża odblokowana 
+
+- balans gry:
+	jeden rodzaj enemy, jedna wieża 	1 lvl
+
+
+---------------------- na później -----------------------
+- ulepszanie wież
