@@ -24,6 +24,7 @@ monkey revenge:
 
 - BUGFIX:
 	nie dziala dzwiek na ataku bazy
+	z jakiegos powodu malpy nie umieraja po wejsciu w baze
 
 ---------------------- na później -----------------------
 - ulepszanie wież
