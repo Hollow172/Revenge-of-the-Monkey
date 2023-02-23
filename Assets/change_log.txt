@@ -5,7 +5,7 @@ monkey revenge:
 - rework pierwszego poziomu
 - main screen
 - settings
-- game over screen
+- game over screen (make it prettier?)
 
 - animacje chodzenia
 - nowy przeciwnik
@@ -21,6 +21,9 @@ monkey revenge:
 - health bar:
 	zmienna na zadany dmg zaleznie od enemy
 
+
+- BUGFIX:
+	nie dziala dzwiek na ataku bazy
 
 ---------------------- na później -----------------------
 - ulepszanie wież

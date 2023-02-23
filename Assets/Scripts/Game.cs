@@ -48,8 +48,9 @@ public class Game : MonoBehaviour
     {
         StopAllCoroutines();
         Time.timeScale = 0;
+        isStarted = false;
+        grayImage.enabled = true;
 
-        //enemySpawn.isSpawning = false;
         //Debug.Log("Game Over");
     }
 
